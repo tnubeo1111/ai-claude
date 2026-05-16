@@ -2,21 +2,39 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project Status
+## Project Overview
 
-This project is not yet initialized — no source files exist yet. The `.claude/` directory is the only content.
+`mcp-plugin-ai` là một **khóa học AI có cấu trúc**, song ngữ (Tiếng Việt / English), dành cho sysadmin và platform engineer muốn hiểu và tích hợp AI vào công việc thực tế.
 
-## Context
+Mục tiêu: không phải build sản phẩm — mà là hiểu cơ chế AI agent và dùng AI như công cụ có kiểm soát.
 
-This project (`mcp-plugin-ai`) sits alongside [`mcp-gateway`](../mcp-gateway) in the same workspace. `mcp-gateway` is a TypeScript/Express aggregator that proxies multiple upstream MCP servers into a single endpoint for AI agents. `mcp-plugin-ai` is likely a plugin or client that integrates with that gateway or with the MCP protocol directly.
+## Structure
 
-The `.claude/settings.local.json` grants read access across all projects under `/home/thalt/env-lab/`, which can be useful for cross-referencing sibling projects during development.
+```
+mcp-plugin-ai/
+├── README.md                          # Landing page, bản đồ học
+├── module-01-ai-fundamentals/         # LLM, token, context window, roles + 2 demos
+├── module-02-mcp-protocol/            # Tool use flow, MCP components, gateway
+├── module-03-browser-automation/      # Chrome DevTools MCP setup + 3 workflows
+├── module-04-platform-workflows/      # 4 use cases: log, health check, report, file ops
+├── module-05-control-and-safety/      # Human-in-the-loop, role patterns, permissions
+└── docs/superpowers/                  # Design spec + implementation plan
+```
 
-## Sibling Reference: mcp-gateway
+## Content Conventions
 
-Key patterns from `mcp-gateway` that may be reused here:
+- Tiêu đề: `# [EN] Title / [VI] Tiêu đề`
+- Lý thuyết trước, ví dụ sau
+- Mỗi file có section "Tại sao điều này quan trọng với sysadmin?"
+- Links dùng relative path
+- Không có code phức tạp — shell commands, config files, prompt examples
 
-- **Transport types**: `streamable-http` (MCP 2025-11-25), `sse` (MCP 2024-11-05), `fastmcp` (Ceph custom), `stdio`
-- **Tool namespacing**: tools are prefixed with server ID, e.g. `ceph_alpha__get_health_summary`
-- **Gateway endpoint**: `http://localhost:3010/sse?apiKey=mcp_gateway_secret_123`
-- **Stack**: TypeScript, Node.js, Express, Zod for config validation
+## Target Audience
+
+- Background: system admin / platform engineer
+- Dùng Claude Pro + Claude Code CLI (không cần Anthropic API key)
+- Chưa có kinh nghiệm AI agent, LLM, MCP
+
+## GitHub
+
+Repo: `https://github.com/tnubeo1111/ai-claude` (branch: master)
